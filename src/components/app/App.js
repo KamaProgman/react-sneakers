@@ -35,10 +35,14 @@ function App() {
 		})
 	}
 
+	const handleDrawer = () => {
+		setCartOpened(!cartOpened)
+	}
+
 	return (
 		<div className="wrapper">
-			{cartOpened ? <Drawer items={cartItems} onClose={() => setCartOpened(!cartOpened)} /> : null}
-			<Header onOpen={() => setCartOpened(!cartOpened)} />
+			{cartOpened ? <Drawer items={cartItems} onClose={handleDrawer} /> : null}
+			<Header onOpen={handleDrawer} />
 
 			<div className="content py-9 px-10">
 				<a href="#" className="block mb-8">
